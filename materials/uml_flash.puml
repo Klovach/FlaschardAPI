@@ -1,0 +1,55 @@
+@startuml Flashcard Unified Modeling Language (UML) Diagram
+
+class UserController {
+  + createUser()
+  + updateUser()
+  + deleteUser()
+  + getUserById()
+  + authenticateUser()
+}
+
+class DeckController {
+  + createDeck()
+  + updateDeck()
+  + deleteDeck()
+  + getDeckById()
+}
+
+class CardController {
+  + createCard()
+  + updateCard()
+  + deleteCard()
+  + getCardById()
+}
+
+class UserModel {
+  - Id: int
+  - Email: string
+  - Password: string
+  + <<get/set>> methods()
+}
+
+class DeckModel {
+  - Id : int
+  - imgPath: string
+  - Name: string
+  - Description: string
+  + <<get/set>> methods()
+}
+
+class CardModel {
+  - Id : int
+  - imgPath: string
+  - Question: string
+  - Answer: string
+  + <<get/set>> methods()
+}
+
+UserController --|> UserModel
+DeckController --|> DeckModel 
+CardController --|> CardModel 
+
+UserModel --o DeckModel 
+DeckModel --o CardModel 
+
+@enduml
